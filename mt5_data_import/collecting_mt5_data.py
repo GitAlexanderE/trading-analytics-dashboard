@@ -6,6 +6,7 @@ from pandas.plotting import register_matplotlib_converters
 import mysql.connector
 import os.path
 import MetaTrader5 as mt5
+from decouple import config
 
 
 def get_session(dt):
@@ -54,18 +55,18 @@ if not mt5.initialize():
     print("initialize() failed")
     mt5.shutdown()
 
-account = 5044355516
-password = os.getenv("METAQUOTESDEMO_PASSWORD")
-server = "MetaQuotes-Demo"
+mt5_account_login = config('MT5_ACCOUNT_LOGIN')
+mt5_password = config('MT5_PASSWORD')
+mt5_server = config('MT5_SERVER')
 
 # Login
-authorized = mt5.login(account, password=password, server=server, timeout=60)
+authorized = mt5.login(mt5_account_login, password=mt5_password, server=mt5_server, timeout=60)
 
 if authorized:
-    print(f"Connected to account #{account} ")
+    print(f"Connected to account #{mt5_account_login} ")
 else:
     error_code, error_msg = mt5.last_error()
-    print(f"Failed to connect to account #{account}, error code: {error_code}, error message: {error_msg}")
+    print(f"Failed to connect to account #{mt5_account_login}, error code: {error_code}, error message: {error_msg}")
 
 # Account info
 time_last_update = datetime.now(tz=timezone.utc)
@@ -222,10 +223,10 @@ df_closed_agg['session'] = df_closed_agg['position_id'].map(lambda pid: open_inf
 
 
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password=os.getenv("MYSQL_PASSWORD"),
-    database="trades"
+    host=config("MYSQL_HOST"),
+    user=config("MYSQL_USER"),
+    password=config("MYSQL_PASSWORD"),
+    database=config("MYSQL_DATABASE"),
 )
 
 mycursor = mydb.cursor()
