@@ -1,0 +1,40 @@
+{% extends 'overview/base.html' %}
+{% load static %}
+{% block title %}Closed Positions{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+<div class="row content-wrapper">
+    <div class="col-md-12">
+        <div class="content-card text-left shadow-sm border rounded">
+            <h2>Closed Positions</h2>
+            <table class="table table-dashboard mt-3">
+                <tr>
+                    <th>Position_id</th>
+                    <th>Symbol</th>
+                    <th>Volume</th>
+                    <th>Opening Price</th>
+                    <th>Swap</th>
+                    <th>Profit</th>
+                    <th>Fee</th>
+                    <th>Close Time</th>
+                </tr>
+                {% for t in closed_positions %}
+                <tr>
+                    <td>{{ t.position_id }}</td>
+                    <td>{{ t.symbol }}</td>
+                    <td>{{ t.volume }}</td>
+                    <td>{{ t.price }}</td>
+                    <td>{{ t.swap }}</td>
+                    <td>{{ t.profit }}</td>
+                    <td>{{ t.fee }}</td>
+                    <td>{{ t.time_close }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

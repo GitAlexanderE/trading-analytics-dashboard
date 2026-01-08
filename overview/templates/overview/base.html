@@ -1,0 +1,83 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'overview/css/style.css' %}">
+</head>
+
+
+<body >
+
+<nav class="navbar navbar-dashboard sticky-top navbar-expand-lg">
+    <div class="d-flex w-100">
+
+        <!-- Left sidebar: Brand in sidebar -->
+        <div class="d-flex flex-column justify-content-center align-items-center"
+             style="width: 16.6667%; min-height: 50px;">
+            <a class="navbar-brand" href="{% url 'dashboard' %}">Dashboard</a>
+        </div>
+
+        <!-- Middle Box (Nav-Links) -->
+        <div class="d-flex align-items-center flex-grow-1 ps-4">
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/dashboard/' %}active{% endif %}"
+                       href="{% url 'dashboard' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/statistics/' %}active{% endif %}"
+                       href="{% url 'statistics' %}">Statistics/Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/closed_positions/' %}active{% endif %}"
+                       href="{% url 'closed_positions' %}">Closed Positions</a>
+                </li>
+            </ul>
+            <!-- GitHub -->
+            <div class="d-flex align-items-center ms-right me-5">
+                <a href="https://github.com/GitAlexanderE" target="_blank" class="text-dark fs-4"
+                   data-bs-toggle="tooltip" title="GitHub">
+                    <i class="bi bi-github"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<!-- Main 3-column layout -->
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Left gray column -->
+        <div class="col-md-2 min-vh-100">
+            <!-- Sidebar or empty space -->
+        </div>
+
+        <!-- Center content -->
+        <div class="col-md-8 center-content-design">
+            <div class="content-wrapper">
+                {% block content %}
+                <!-- Child templates will insert content here -->
+                {% endblock %}
+            </div>
+        </div>
+
+        <!-- Right gray column -->
+        <div class="col-md-2 min-vh-100">
+            <!-- Ads, info, or empty space -->
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

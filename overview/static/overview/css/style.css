@@ -1,0 +1,108 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('bvu_website_pic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.navbar-dashboard {
+    /* background-color: var(--teal-main); */
+    /* background: linear-gradient(160deg, #13795b 0%, #17a57d 40%, #20c997 100%); */
+    background: linear-gradient(
+        160deg,
+        rgba(19,121,91,0.9) 0%,   /* top 90% opaque */
+        rgba(23,165,125,0.7) 40%, /* mid 70% */
+        rgba(32,201,151,0.5) 100%  /* bottom 50% */
+    );
+    backdrop-filter: blur(8px);
+    min-height: 50px;
+    /*padding: 0.5rem 2rem; */
+    box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+}
+
+/* Brand left sidebar centered */
+.navbar-dashboard .navbar-brand {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Nav middle box starts left */
+.navbar-dashboard .nav-link {
+    color: #fff /*rgba(255,255,255,0.85) */;
+    margin-right: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.1s;
+}
+
+.navbar-dashboard .nav-link:hover,
+.navbar-dashboard .nav-link.active {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 2px;
+}
+
+:root {
+    --teal-main: #13795b;     /* teal-700 */
+    --teal-accent: #20c997;  /* teal-500  */
+    --teal-soft: #d2f4ea;    /* teal-100  */
+    --text-dark: #212529;
+    --bg-light: #f8f9fa;
+}
+
+.sidebar {
+    background-color: #e9ecef; /* Bootstrap gray-200 */
+}
+
+.content-wrapper {
+    padding-top: 1.2rem; /* space below navbar */
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    padding-bottom: 1.2rem;
+}
+
+.center-content-design {
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+}
+
+.content-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.col-md-8 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+.highlight {
+    text-decoration: underline;
+}
+
+.table-dashboard {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+

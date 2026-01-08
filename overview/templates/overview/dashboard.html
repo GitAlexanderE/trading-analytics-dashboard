@@ -1,0 +1,142 @@
+{% extends "overview/base.html" %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+<div class="col-md-12">
+    <div class="content-wrapper" style="max-width: 1420px;">
+        <div class="card shadow-sm p-4">
+
+            <div class="row align-items-start">
+
+                <!-- Left: Header -->
+                <div class="col-md-3">
+                    <h2 class="fs-3 mb-3">Willkommen auf meinem Dashboard!</h2>
+                </div>
+                <!-- RIGHT: GitHubProjekt -->
+                <div class="col-md-9">
+                    <div class="d-flex flex-row-reverse align-items-right gap-3 flex-wrap">
+                        <div class="p-2">
+                            <a href="https://github.com/GitAlexanderE" target="_blank" class="btn btn-outline-dark my-2"
+                              data-bs-toggle="tooltip" title="https://github.com/GitAlexanderE">Zum GitHub-Projekt</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Cover Letter -->
+            <p class=" fs-5 my-3">
+
+                Sehr geehrte Damen und Herren,<br><br>
+                mein Name ist <strong>Alexander Eberhardt</strong>, ich bin Maschinenbauingenieur und
+                habe mein Studium Ende 2025 abgeschlossen. Mit diesem Hintergrund bewerbe ich mich als
+                <a href="https://karriere.bvu.de/21-full-stack-softwareentwickler-in-programmierer-in-optimierung-innovationen-im-schienenverkehr-w-m-d/de/job.html"
+                   target="_blank"
+                   style="color: #208097; text-decoration: none; font-weight: bold;"
+                   onmouseover="this.style.textDecoration='underline';"
+                   onmouseout="this.style.textDecoration='none';">Full Stack Software Entwickler <i
+                        class="bi bi-box-arrow-up-right" style="font-size: 0.8em;"></i></a>
+                bei der BVU Beratergruppe Verkehr + Umwelt GmbH.<br><br>
+
+                In meinem aktuellen Projekt habe ich ein Dashboard entwickelt, das Trading-Daten von <span
+                    class="highlight">MetaTrader5 </span>
+                ausliest, mit <span class="highlight">Python</span> verarbeitet, in einer <span class="highlight">MySQL-Datenbank</span>
+                abspeichert und über <span class="highlight">Django</span> sowie <span
+                    class="highlight">HTML/CSS/JS</span> visualisiert.
+                Die Arbeit an solchen Projekten motiviert mich besonders, da ich die Ergebnisse praktisch einsetzen kann
+                und dabei
+                meine Fähigkeiten in der Backend- und Frontendentwicklung kontinuierlich erweitere. Gleichzeitig
+                erlerne ich neue Technologien sowie Best Practices, wie etwa den effizienten Umgang mit relationalen
+                Datenbanken
+                wie MySQL oder die Umsetzung ansprechender Benutzeroberflächen.<br>
+                Das gesamte Projekt habe ich auf <span class="highlight">GitHub</span> hochgeladen, sodass Sie die
+                Umsetzung und den Code direkt
+                einsehen können.
+                <br>
+            </p>
+
+            <!-- Cover Letter continue-->
+            <p class=" fs-5 my-3">
+                Mir bereitet es große Freude, mich Herausforderungen zu stellen, sei es bei der Entwicklung komplexer
+                Softwarelösungen oder beim Lösen anspruchsvoller Probleme. Im vergangenen Jahr habe ich eigenständig
+                als Forex-Trader gearbeitet, wodurch ich eine strukturierte, selbstständige Arbeitsweise entwickelt
+                habe.
+                Gleichzeitig weiß ich, wie wertvoll der Austausch mit Kolleginnen und Kollegen ist und freue mich
+                darauf,
+                in einem interdisziplinären Team gemeinsam an innovativen Softwarelösungen mitzuwirken. Diese
+                Motivation,
+                gepaart mit meiner Lernbereitschaft und meinem technischen Know-how, macht mich besonders geeignet für
+                die
+                Arbeit bei der BVU.<br><br>
+                Gerne erläutere ich Ihnen meine Erfahrungen und Projekte in einem persönlichen Gespräch und freue mich
+                auf
+                den Austausch mit Ihnen.<br><br>
+
+
+            </p>
+
+            <div class="row align-items-start">
+
+                <!-- LEFT: Greetings -->
+                <div class="col-md-3">
+                    <p class="fs-5 mb-1">Mit freundlichen Grüßen</p>
+                    <p class="fs-5 fw-semibold">Alexander Eberhardt</p>
+                </div>
+
+                <!-- RIGHT: Workflow -->
+                <div class="col-md-9">
+                    <div class="d-flex align-items-center gap-3 flex-wrap">
+
+                        <div class="workflow-box card shadow-sm p-3 text-center">
+                            <i class="bi bi-graph-up fs-1 text-purple"></i>
+                            <p class="mt-2 mb-0"><strong>MT5</strong></p>
+                        </div>
+
+                        <i class="bi bi-arrow-right fs-4 text-muted"></i>
+
+                        <div class="workflow-box card shadow-sm p-3 text-center">
+                            <i class="bi bi-file-code fs-1 text-success"></i>
+                            <p class="mt-2 mb-0"><strong>Python</strong></p>
+                        </div>
+
+                        <i class="bi bi-arrow-right fs-4 text-muted"></i>
+
+                        <div class="workflow-box card shadow-sm p-3 text-center">
+                            <i class="bi bi-database fs-1 text-warning"></i>
+                            <p class="mt-2 mb-0"><strong>MySQL</strong></p>
+                        </div>
+
+                        <i class="bi bi-arrow-right fs-4 text-muted"></i>
+
+                        <div class="workflow-box card shadow-sm p-3 text-center">
+                            <i class="bi bi-server fs-1 text-info"></i>
+                            <p class="mt-2 mb-0"><strong>Django</strong></p>
+                        </div>
+
+                        <i class="bi bi-arrow-right fs-4 text-muted"></i>
+
+                        <div class="workflow-box card shadow-sm p-3 text-center">
+                            <i class="bi bi-server fs-1 text-info"></i>
+                            <p class="mt-2 mb-0"><strong>HTML/CSS/JS</strong></p>
+                        </div>
+
+                        <i class="bi bi-arrow-right fs-4 text-muted"></i>
+
+                        <div class="workflow-box card shadow-sm p-3 text-center">
+                            <i class="bi bi-github fs-1 text-dark"></i>
+                            <p class="mt-2 mb-0"><strong>GitHub</strong></p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
