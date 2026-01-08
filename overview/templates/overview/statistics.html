@@ -24,7 +24,7 @@
             <p class="fs-2 fw-bold mt-1" id="dailyPL">--</p> <!-- js -->
         </div>
     </div>
-        <div class="col-md-3">
+    <div class="col-md-3">
         <div class="content-card p-3 text-center shadow-sm border rounded">
             <h5>Account Mode</h5>
             <p class="fs-2 fw-bold mt-1">{{ trade_mode }}</p>
@@ -91,78 +91,78 @@
         </div>
     </div>
     <!-- Daily Stats -->
-        <div class="col-md-6">
-            <div class="content-card text-left shadow-sm border rounded">
-                <h4>Daily Stats</h4><br>
-                <!-- Weekday Stats -->
-                <h5>Weekdays</h5>
-                <table class="table table-dashboard mt-3">
-                    <thead>
-                    <tr>
-                        <th> Weekday</th>
-                        <th> Positions</th>
-                        <th> Winrate(%)</th>
-                        <th> Profit</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for weekday, data in weekday_stats.items %}
-                    <tr>
-                        <td> {{ weekday }}</td>
-                        <td> {{ data.total_positions }}</td>
-                        <td> {{ data.winrate|floatformat:2 }}%</td>
-                        <!-- |floatformat:2|default:"0.00" format for 2 decimal places if empty use "0.00" -->
-                        <td class="{%if data.total_profit > 0 %} text-success {% elif data.total_profit < 0 %} text-danger {% else %} test-dark {% endif %}">
-                            {{ data.total_profit|floatformat:2}}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-                <!-- Session Stats -->
-                <h5>Sessions</h5>
-                <table class="table table-dashboard mt-3">
-                    <thead>
-                    <tr>
-                        <th> Session</th>
-                        <th> Positions</th>
-                        <th> Winrate(%)</th>
-                        <th> Profit</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for session, data in sessions_stats.items %}
-                    <tr>
-                        <td> {{ session }}</td>
-                        <td> {{ data.total_positions }}</td>
-                        <td> {{ data.winrate|floatformat:2 }}%</td>
-                        <!-- |floatformat:2|default:"0.00" format for 2 decimal places if empty use "0.00" -->
-                        <td class="{%if data.total_profit > 0 %} text-success {% elif data.total_profit < 0 %} text-danger {% else %} test-dark {% endif %}">
-                            {{ data.total_profit|floatformat:2}}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+    <div class="col-md-6">
+        <div class="content-card text-left shadow-sm border rounded">
+            <h4>Daily Stats</h4><br>
+            <!-- Weekday Stats -->
+            <h5>Weekdays</h5>
+            <table class="table table-dashboard mt-3">
+                <thead>
+                <tr>
+                    <th> Weekday</th>
+                    <th> Positions</th>
+                    <th> Winrate(%)</th>
+                    <th> Profit</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for weekday, data in weekday_stats.items %}
+                <tr>
+                    <td> {{ weekday }}</td>
+                    <td> {{ data.total_positions }}</td>
+                    <td> {{ data.winrate|floatformat:2 }}%</td>
+                    <!-- |floatformat:2|default:"0.00" format for 2 decimal places if empty use "0.00" -->
+                    <td class="{%if data.total_profit > 0 %} text-success {% elif data.total_profit < 0 %} text-danger {% else %} test-dark {% endif %}">
+                        {{ data.total_profit|floatformat:2}}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <!-- Session Stats -->
+            <h5>Sessions</h5>
+            <table class="table table-dashboard mt-3">
+                <thead>
+                <tr>
+                    <th> Session</th>
+                    <th> Positions</th>
+                    <th> Winrate(%)</th>
+                    <th> Profit</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for session, data in sessions_stats.items %}
+                <tr>
+                    <td> {{ session }}</td>
+                    <td> {{ data.total_positions }}</td>
+                    <td> {{ data.winrate|floatformat:2 }}%</td>
+                    <!-- |floatformat:2|default:"0.00" format for 2 decimal places if empty use "0.00" -->
+                    <td class="{%if data.total_profit > 0 %} text-success {% elif data.total_profit < 0 %} text-danger {% else %} test-dark {% endif %}">
+                        {{ data.total_profit|floatformat:2}}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Equity curve card -->
+<div class="row">
+    <div class="col-12">
+        <div class="content-card shadow-sm border rounded">
+            <canvas id="equityChart" width="800" height="400" data-equity='{{ equity_data_json|safe }}'></canvas>
         </div>
     </div>
 </div>
 
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Equity curve card -->
-    <div class="row">
-        <div class="col-12">
-            <div class="content-card shadow-sm border rounded">
-                <canvas id="equityChart" width="800" height="400" data-equity='{{ equity_data_json|safe }}'></canvas>
-            </div>
-        </div>
-    </div>
+<!-- script.js -->
+<script src="{% static 'overview/js/script.js' %}"></script>
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- script.js -->
-    <script src="{% static 'overview/js/script.js' %}"></script>
-
-    {% endblock %}
+{% endblock %}
