@@ -28,7 +28,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['AlexanderEberhardt.pythonanywhere']
+ALLOWED_HOSTS = ['AlexanderEberhardt.pythonanywhere.com']
 
 
 # Application definition
