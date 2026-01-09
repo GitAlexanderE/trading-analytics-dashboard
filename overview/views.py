@@ -28,45 +28,6 @@ def statistics(request):
     open_count = open_positions.count()
     closed_count = closed_positions.count()
 
-    # Build last equity per day (multiple snapshots)
-    account_history = Account.objects.order_by('time_last_update')
-
-    starting_capital = 100000
-    last_equity = starting_capital
-    equity_by_day = {}
-
-    for a in account_history:
-        day = a.time_last_update.date()  # cutting off the time
-        last_equity = float(
-            round(a.equity or last_equity, 2))  # if a.equity exists take that and if not take last known equity value
-        equity_by_day[day] = last_equity  # store the last equity per day date(2026,1,1): 100000,
-
-    # Fill equity every day
-    start_date = date(2025, 8, 1)
-    end_date = date.today()
-
-    equity_data = []
-    previous_equity = starting_capital
-    current = start_date
-
-    while current <= end_date:
-        if current in equity_by_day:
-            previous_equity = equity_by_day[current]
-
-        equity_data.append({
-            'time_close': current.strftime('%Y-%m-%d'),
-            'equity': previous_equity,
-        })  # { "time_close": "2026-01-01", "equity": 100000 }
-
-        current += timedelta(days=1)
-
-    # Compute daily changes
-    equity_values = [d['equity'] for d in equity_data]
-    equity_change = [0] + [round(equity_values[i] - equity_values[i - 1], 2) for i in range(1, len(equity_values))]
-    for i, d in enumerate(equity_data):
-        d['equity_change'] = equity_change[i]
-
-
     # Weekdays stats
 
     weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
@@ -283,7 +244,6 @@ def statistics(request):
     return render(request, 'overview/statistics.html', {
         'open_count': open_count,
         'closed_count': closed_count,
-        'equity_data_json': json.dumps(equity_data),
         'weekday_stats': stats_dict_weekday,
         'sessions_stats': stats_dict_session,
         'monthly_stats': stats_dict_monthly,
