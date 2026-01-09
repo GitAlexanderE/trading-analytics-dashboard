@@ -264,7 +264,7 @@ def statistics(request):
             'winrate': stats['winrate'],
         }
 
-    total_profit_all_years = sum(stats['total_profit'] for stats in stats_dict_year.values())
+    total_profit_all_years = round(sum(stats['total_profit'] for stats in stats_dict_year.values()), 2)
 
     # Account trade mode
     account = Account.objects.last()
