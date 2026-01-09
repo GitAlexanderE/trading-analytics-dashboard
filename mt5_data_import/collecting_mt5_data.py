@@ -142,7 +142,7 @@ df_active['time_last_update'] = pd.to_datetime(df_active['time_last_update'])
 
 # Data about already closed positions
 utc_to = datetime.now()
-utc_from = utc_to - timedelta(days=5474)  # 15 years
+utc_from = utc_to - timedelta(days=250)  # 150 days
 closed_positions = mt5.history_deals_get(utc_from, utc_to)
 
 closedpositions = [
@@ -234,8 +234,8 @@ mycursor = mydb.cursor()
 # Clear open positions from MySQL first
 mycursor.execute("TRUNCATE TABLE open_positions")
 mydb.commit()
-df_active = df_active.where(pd.notnull(df_active), None)
 
+df_active = df_active.where(pd.notnull(df_active), None)
 df_closed_agg = df_closed_agg.where(pd.notnull(df_closed_agg), None)
 df_account = df_account.where(pd.notnull(df_account), None)
 

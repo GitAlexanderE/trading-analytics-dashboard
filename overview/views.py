@@ -42,7 +42,7 @@ def statistics(request):
         equity_by_day[day] = last_equity  # store the last equity per day date(2026,1,1): 100000,
 
     # Fill equity every day
-    start_date = date(2026, 1, 1)
+    start_date = date(2025, 8, 1)
     end_date = date.today()
 
     equity_data = []
@@ -232,7 +232,7 @@ def statistics(request):
 
     # Yearly winrate
 
-    years = ['2026', '2027', '2028']
+    years = ['2025','2026', '2027']
     stats_dict_year = {year: {'total_positions': 0, 'wins': 0, 'total_profit': 0, 'winrate': 0} for year in years}
 
 
