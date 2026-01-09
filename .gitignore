@@ -18,3 +18,4 @@ __pycache__/
 staticfiles/
 media/
 
+alex_ssh_key_1.pem
