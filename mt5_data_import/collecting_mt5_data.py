@@ -55,7 +55,7 @@ if not mt5.initialize():
     print("initialize() failed")
     mt5.shutdown()
 
-mt5_account_login = config('MT5_ACCOUNT_LOGIN')
+mt5_account_login = int(config('MT5_ACCOUNT_LOGIN'))
 mt5_password = config('MT5_PASSWORD')
 mt5_server = config('MT5_SERVER')
 
@@ -223,10 +223,10 @@ df_closed_agg['session'] = df_closed_agg['position_id'].map(lambda pid: open_inf
 
 
 mydb = mysql.connector.connect(
-    host=config("MYSQL_HOST"),
-    user=config("MYSQL_USER"),
-    password=config("MYSQL_PASSWORD"),
-    database=config("MYSQL_DATABASE"),
+    host=config("MYSQL_HOST_AWS"),
+    user=config("MYSQL_USER_AWS"),
+    password=config("MYSQL_PASSWORD_AWS"),
+    database=config("MYSQL_DB_NAME_AWS"),
 )
 
 mycursor = mydb.cursor()

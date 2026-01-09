@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'Website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('MYSQL_DB_NAME_PYTHONANYWHERE'),
-        'USER': config('MYSQL_USER_PYTHONANYWHERE'),
-        'PASSWORD': config('MYSQL_PASSWORD_PYTHONANYWHERE'),
-        'HOST': 'AlexanderEberhardt.mysql.pythonanywhere-services.com',
+        'NAME': config('MYSQL_DB_NAME_AWS'),
+        'USER': config('MYSQL_USER_AWS'),
+        'PASSWORD': config('MYSQL_PASSWORD_AWS'),
+        'HOST': config('MYSQL_HOST_AWS'),
         'PORT': '3306'
     }
 }
