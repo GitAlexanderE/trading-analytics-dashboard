@@ -1,4 +1,3 @@
-from MetaTrader5 import last_error
 from django.db.models import Count, Sum, Q, FloatField, F, ExpressionWrapper, Case, When, Value
 from django.db.models.functions import ExtractMonth, ExtractYear
 from django.db.models.fields import IntegerField
