@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'Website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'trades',
-        'USER': 'root',
-        'PASSWORD': os.getenv("MYSQL_PASSWORD"),
-        'HOST': 'localhost',
+        'NAME': 'AlexanderEberhar$tradingdb',
+        'USER': 'AlexanderEberhar',
+        'PASSWORD': os.getenv('MYSQL_PASSWORD_PYTHONANYWHERE'),
+        'HOST': 'AlexanderEberhardt.mysql.pythonanywhere-services.com',
         'PORT': '3306'
     }
 }
