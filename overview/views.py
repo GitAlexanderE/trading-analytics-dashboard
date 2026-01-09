@@ -264,6 +264,7 @@ def statistics(request):
             'winrate': stats['winrate'],
         }
 
+    total_profit_all_years = sum(stats['total_profit'] for stats in stats_dict_year.values())
 
     # Account trade mode
     account = Account.objects.last()
@@ -288,6 +289,7 @@ def statistics(request):
         'monthly_stats': stats_dict_monthly,
         'yearly_stats': stats_dict_year,
         'trade_mode': trade_mode,
+        'total_profit_all_years': total_profit_all_years,
     })
 
 

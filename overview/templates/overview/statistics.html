@@ -18,11 +18,10 @@
             <p class="fs-2 fw-bold mt-1">{{ open_count }}</p>
         </div>
     </div>
-    {% for year, data in yearly_stats.items %}
     <div class="col-md-3">
         <div class="content-card p-3 text-center shadow-sm border rounded">
             <h5>Total Profit&Loss</h5>
-            <p class="fs-2 fw-bold mt-1"> {{ data.total_profit }}  </p>
+            <p class="fs-2 fw-bold mt-1"> {{ total_profits_all_years }}  </p>
         </div>
     </div>
     <div class="col-md-3">
